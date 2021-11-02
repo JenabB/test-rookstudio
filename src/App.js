@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CardList from "./components/CardList";
+import { useDispatch } from "react-redux";
+import { showCat, addCardItem } from "./redux/actions";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <div>
+        <button
+          className="bg-blue-400 px-2 py-1 m-4 rounded-sm text-white"
+          onClick={() => dispatch(addCardItem())}
         >
-          Learn React
-        </a>
-      </header>
+          add card
+        </button>
+        <button
+          className="bg-blue-400 px-2 py-1 m-4 rounded-sm text-white"
+          onClick={() => showCat()}
+        >
+          show cat
+        </button>
+      </div>
+
+      <CardList />
     </div>
   );
-}
+};
 
 export default App;
