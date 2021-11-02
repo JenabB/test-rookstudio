@@ -12,7 +12,7 @@ const cardsReducer = (state = initialState, action) => {
     case SET_ACTIVE_STATUS:
       return {
         ...state,
-        activeCard: action.payload,
+        activeCard: state.activeCard === action.payload ? 0 : action.payload,
       };
 
     case SHOW_CAT:
@@ -20,6 +20,7 @@ const cardsReducer = (state = initialState, action) => {
         ...state,
         showCat: !state.showCat,
       };
+
     case ADD_CARD_ITEM:
       return {
         ...state,

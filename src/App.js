@@ -1,7 +1,6 @@
-import React from "react";
 import CardList from "./components/CardList";
 import { useDispatch } from "react-redux";
-import { showCat, addCardItem } from "./redux/actions";
+import { addCardItem, setShowCat } from "./redux/actions";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const App = () => {
         </button>
         <button
           className="bg-blue-400 px-2 py-1 m-4 rounded-sm text-white"
-          onClick={() => showCat()}
+          onClick={() => dispatch(setShowCat())}
         >
           show cat
         </button>

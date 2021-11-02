@@ -9,6 +9,6 @@ export const setActiveStatus = (id) => ({
   payload: id,
 });
 
-export const showCat = () => ({
+export const setShowCat = () => ({
   type: SHOW_CAT,
 });

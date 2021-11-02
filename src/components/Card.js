@@ -6,15 +6,18 @@ const Card = ({ card }) => {
 
   const active = useSelector((state) => state.cardsReducer.activeCard);
   const showCat = useSelector((state) => state.cardsReducer.showCat);
+
   return (
     <div
       className={
-        !active ? `bg-red-200 m-3 shadow-lg` : "bg-green-300 m-3 shadow-lg"
+        active === card.id
+          ? `bg-green-300 m-3 shadow-lg`
+          : "bg-red-300 m-3 shadow-lg"
       }
       style={{ width: "250px", height: "350px" }}
       onClick={() => dispatch(setActiveStatus(card.id))}
     >
-      {!active ? "" : <h1>{card.id}</h1>}
+      {active === card.id ? <h1>{card.id}</h1> : ""}
       {showCat && (
         <img
           src={`https://placekitten.com/200/300?image=${card.id}`}
