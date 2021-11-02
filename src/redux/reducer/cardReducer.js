@@ -23,7 +23,7 @@ const cardsReducer = (state = initialState, action) => {
     case ADD_CARD_ITEM:
       return {
         ...state,
-        cards: [...state.cards, { id: state.cards.length + 1, active: false }],
+        cards: [...state.cards, { id: state.cards.length + 1 }],
       };
 
     default:
